@@ -12,27 +12,27 @@ This project requires Python 3.8 or later. To prevent any problems with the pyth
 
 1. Clone the repository:
     ```
-    git clone https://github.com/username/projectname.git
+    git clone https://github.com/phcom/fastlab.git
     ```
 
 2. Navigate to the project directory:
     ```
-    cd projectname
+    cd fastlab
     ```
 
 3. Create a virtual environment:
     ```
-    python3 -m venv virtualenvname
+    python3 -m venv venv
     ```
 
 4. Activate the virtual environment:
     - On Windows:
         ```
-        .\fastenv\Scripts\activate
+        .\venv\Scripts\activate
         ```
     - On Unix or MacOS:
         ```
-        source fastenv/bin/activate
+        source venv/bin/activate
         ```
 
 5. Install the required packages:
@@ -51,7 +51,7 @@ For more information about FastAPI, you can visit the [FastAPI documentation](ht
 To run the project, use the following command:
 
 ```bash
-python -m projectname
+python -m app
 ```
 
 ## Contributing
@@ -65,6 +65,10 @@ We welcome contributions from everyone. Here are some guidelines to follow:
 3. Before creating a pull request, ensure your feature branch is up-to-date with the latest changes from `dev`.
 
 4. Create a pull request to merge your feature branch into `dev`, not `main`.
+
+5. Remember to always update the requirements.txt file if you add or update any packages.
+
+6. If working with another developer, add him as a co-author in the commit message.
 
 By following these guidelines, we can maintain a clean, manageable project structure and history.
 

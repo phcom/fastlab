@@ -1,0 +1,32 @@
+version: "2.3"
+networks:
+  ages:
+    driver: bridge
+volumes:
+  db-data-back:
+    external: true
+services:
+  db-back:
+    container_name: db-back
+    image: postgres:alpine3.18
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=backend
+    volumes:
+      - db-data-back:/var/lib/postgresql/data
+    networks:
+      - ages
+  backend:
+      container_name: backend
+      build:
+        context: .
+        dockerfile: DockerFile
+      ports:
+        - 8000:8000
+      networks:
+        - ages
+      depends_on:
+        - db-back
