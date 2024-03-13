@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from typing import Union
-from models.batata import Batata
+from ..models import Batata
 
 router = APIRouter(tags=["Batata"])
 

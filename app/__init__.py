@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from . import dependencies, routes
-from .settings import Settings
+from pydantic_settings import BaseSettings as Settings
 
 
 def create_app() -> FastAPI:

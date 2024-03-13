@@ -1,4 +1,4 @@
-from . item import Item
+from ..models import Item
 from typing import Union
 
 from fastapi import APIRouter

@@ -6,5 +6,4 @@ deve ser exposto, então é interessante criar um schema para o usuário
 que não contenha o campo senha, e assim por diante.
 """
 
-
 from .user import User

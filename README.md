@@ -28,11 +28,11 @@ This project requires Python 3.8 or later. To prevent any problems with the pyth
 4. Activate the virtual environment:
     - On Windows:
         ```
-        .\env\Scripts\activate
+        .\fastenv\Scripts\activate
         ```
     - On Unix or MacOS:
         ```
-        source env/bin/activate
+        source fastenv/bin/activate
         ```
 
 5. Install the required packages:
