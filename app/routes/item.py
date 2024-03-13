@@ -1,8 +1,8 @@
 """ Item routes module.
 """
 from typing import Union
-from ..models import Item
 from fastapi import APIRouter
+from ..models import Item
 
 router = APIRouter(tags=["Item"])
 
