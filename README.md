@@ -1,4 +1,4 @@
-# fastlab
+# FastLAB
 
 ## Description
 
@@ -70,4 +70,4 @@ By following these guidelines, we can maintain a clean, manageable project struc
 
 ## License
 
-[Provide information about the license here]
+This is a private project. All rights are reserved by the project owner. Unauthorized distribution, modification, or use without explicit permission from the project owner is strictly prohibited.
