@@ -1,10 +1,14 @@
-from fastapi import FastAPI
+""" Main application module.
+"""
 
-from . import dependencies, routes
+from fastapi import FastAPI
 from pydantic_settings import BaseSettings as Settings
+from . import dependencies, routes
 
 
 def create_app() -> FastAPI:
+    """Create FastAPI application instance.
+    """
     app = FastAPI()
 
     settings = Settings()
