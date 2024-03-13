@@ -5,4 +5,4 @@ class Batata(BaseModel):
     name: str
     price: float
     is_offer: Union[bool, None] = None
-    race: str
+    race: Union[str, None] = None
