@@ -10,6 +10,8 @@ from . import health, user, item, batata
 
 
 def init_app(app: FastAPI) -> None:
+    """Inicializa as rotas da aplicação.
+    """
     app.include_router(user.router)
     app.include_router(health.router)
     app.include_router(item.router)

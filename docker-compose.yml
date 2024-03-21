@@ -1,0 +1,51 @@
+version: "3.4"
+
+networks:
+  ages:
+    driver: bridge
+
+volumes:
+  db-data-back:
+    external: true
+
+services:
+  # Nginx reverse proxy
+  reverse-proxy:
+    image: nginx:1.25.1-alpine
+    container_name: reverse_proxy
+    restart: unless-stopped
+    depends_on:
+        - db-back
+        - backend
+    ports:
+      - 80:80
+    networks:
+      - ages
+    volumes:
+      - ./reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
+  # Postgres database
+  db-back:
+    container_name: db-back
+    image: postgres:alpine3.18
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=backend
+    volumes:
+      - db-data-back:/var/lib/postgresql/data
+    networks:
+      - ages
+  # Backend
+  backend:
+      container_name: backend
+      build:
+        context: .
+        dockerfile: DockerFile
+      ports:
+        - 8000:8000
+      networks:
+        - ages
+      depends_on:
+        - db-back
