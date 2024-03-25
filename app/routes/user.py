@@ -5,13 +5,13 @@ from fastapi.responses import StreamingResponse
 
 from ..controllers import user as user_controller
 from ..helpers import after_route, generator, validate
-from ..schemas import User
+from ..models import Users, User_Pydantic, UserIn_Pydantic
 
 router = APIRouter(prefix="/user", tags=["User"])
 
 
 @router.get("/", status_code=200)
-async def get_user(is_valid: bool = Depends(validate)) -> User:
+async def get_user(is_valid: bool = Depends(validate)) -> Users:
     """ Get user
     """
     if is_valid:
@@ -20,7 +20,7 @@ async def get_user(is_valid: bool = Depends(validate)) -> User:
 
 
 @router.post("/", status_code=201)
-async def create_user(user: User, background_tasks: BackgroundTasks) -> User:
+async def create_user(user: Users, background_tasks: BackgroundTasks) -> Users:
     """ Create user
     """
     background_tasks.add_task(after_route)

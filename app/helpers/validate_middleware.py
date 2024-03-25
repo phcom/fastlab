@@ -1,8 +1,8 @@
 """ Validação de dados antes de executar a rota 
 """
-from ..schemas import User
+from ..models import Users, User_Pydantic, UserIn_Pydantic
 
-def validate(user: User) -> bool:
+def validate(user: Users) -> bool:
     """ É chamado antes de executar o código da rota pelo fastapi
     """
     return True
