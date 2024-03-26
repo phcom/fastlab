@@ -12,11 +12,16 @@ router = APIRouter(prefix="/user", tags=["User"])
 
 
 @router.get("/", response_model=List[User_Pydantic])
-async def get_user():
+async def get_all_users():
     """ Get user
     """
-    return await user_controller.get_user()
+    return await user_controller.get_all_users()
 
+@router.get("/{user_id}", response_model=User_Pydantic)
+async def get_user(user_id: int):
+    """ Get user by id
+    """
+    return await user_controller.get_user(user_id)
 
 
 @router.post("/", response_model=User_Pydantic)
@@ -30,7 +35,8 @@ async def create_user(user: UserIn_Pydantic):
 async def delete_user(user_id: int) -> None:
     """ Delete user
     """
-    user_controller.delete_user(user_id)
+    await user_controller.delete_user(user_id)
+    return None
 
 
 @router.get("/stream", status_code=200)
