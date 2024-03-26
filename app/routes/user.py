@@ -3,28 +3,27 @@
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 
+from typing import List
 from ..controllers import user as user_controller
-from ..helpers import after_route, generator, validate
-from ..models import Users, User_Pydantic, UserIn_Pydantic
+from ..helpers import after_route, generator
+from ..models import User, User_Pydantic, UserIn_Pydantic
 
 router = APIRouter(prefix="/user", tags=["User"])
 
 
-@router.get("/", status_code=200)
-async def get_user(is_valid: bool = Depends(validate)) -> Users:
+@router.get("/", response_model=List[User_Pydantic])
+async def get_user():
     """ Get user
     """
-    if is_valid:
-        return user_controller.get_user()
-    raise HTTPException(status_code=400, detail="Invalid user")
+    return await user_controller.get_user()
 
 
-@router.post("/", status_code=201)
-async def create_user(user: Users, background_tasks: BackgroundTasks) -> Users:
+
+@router.post("/", response_model=User_Pydantic)
+async def create_user(user: UserIn_Pydantic):
     """ Create user
     """
-    background_tasks.add_task(after_route)
-    return user_controller.create_user(user)
+    return await user_controller.create_user(user)
 
 
 @router.delete("/{user_id}", status_code=204)

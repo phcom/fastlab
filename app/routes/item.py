@@ -2,7 +2,7 @@
 """
 from typing import Union
 from fastapi import APIRouter
-from ..models import Item
+from ..models import Item, Item_Pydantic, ItemIn_Pydantic
 
 router = APIRouter(tags=["Item"])
 
@@ -15,7 +15,7 @@ async def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
 @router.put("/items/{item_id}")
-async def update_item(item_id: int, item: Item):
+async def update_item(item_id: int, item: ItemIn_Pydantic):
     """ Update item by id.
     """
     return {"item_name": item.name, "item_id": item_id}

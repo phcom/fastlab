@@ -9,7 +9,7 @@ from tortoise import Tortoise
 
 async def init_db():
     await Tortoise.init(
-        db_url='postgres://root:root@localhost:5432/backend',
+        db_url='postgres://root:root@db-back:5432/backend',
         modules={'models': [User, Item, Batata]},
     )
     await Tortoise.generate_schemas()
