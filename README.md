@@ -22,7 +22,7 @@ This project requires Python 3.8 or later. To prevent any problems with the pyth
 
 3. Create a virtual environment:
     ```
-    python3 -m venv venv
+    python -m venv venv
     ```
 
 4. Activate the virtual environment:
@@ -52,6 +52,12 @@ To run the project, use the following command:
 
 ```bash
 python -m app
+```
+
+Or, if you have Docker installed, you can use the following command:
+
+```bash
+docker-compose up -d --build
 ```
 
 ## Contributing
