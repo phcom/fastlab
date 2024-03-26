@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "github.copilot",
+        "ms-azuretools.vscode-docker",
+        "github.copilot-chat",
+        "eamodio.gitlens",
+        "ms-python.python",
+        "donjayamanne.python-environment-manager",
+        "ms-vsliveshare.vsliveshare",
+        "visualstudioexptteam.intellicode-api-usage-examples"
+    ]
+}

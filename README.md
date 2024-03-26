@@ -2,11 +2,28 @@
 
 ## Description
 
-[Provide a brief description of your project here]
+FastLAB is a project that aims to provide a easy starting point for FastAPI projects. It includes a basic project structure, a Dockerfile, a Docker Compose file, and a Tortoise ORM integration. The project is designed to be a starting point for FastAPI projects, providing a basic structure that can be used as a template for new projects.
 
 ## Prerequisites
 
 This project requires Python 3.8 or later. To prevent any problems with the python version, we'll all be using Python 3.12. You can download it from [here](https://www.python.org/downloads/).
+
+### Recommended Tools
+
+- [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [DBeaver Community](https://dbeaver.io/download/)
+- [Git Kraken](https://www.gitkraken.com/download)
+
+### Recommended VS Code Extensions
+
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+- [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+
+A more complete list of recommended extensions for Visual Studio Code can be found in the `.vscode/extensions.json` file.
+
+> [!NOTE]
+> Some of the recommended tools and extensions aren't free. You can get access to them by using your student email address and signing up for the [GitHub Student Developer Pack](https://education.github.com/pack).
 
 ## Installation
 
@@ -25,7 +42,14 @@ This project requires Python 3.8 or later. To prevent any problems with the pyth
     python -m venv venv
     ```
 
+> [!IMPORTANT]
+> The following step can throw an `Scripts Disabled`, if it happens during your instalation, don't panic, use the following command and proceed with the next steps. 
+> ```powershell
+>Set-ExecutionPolicy Unrestricted -Scope Process
+>```
 4. Activate the virtual environment:
+
+
     - On Windows:
         ```
         .\venv\Scripts\activate
@@ -46,7 +70,16 @@ For more information about Python, you can visit the [Python documentation](http
 
 For more information about FastAPI, you can visit the [FastAPI documentation](https://fastapi.tiangolo.com/).
 
+For more information about Docker, you can visit the [Docker documentation](https://docs.docker.com/).
+
+For more information about Docker Compose, you can visit the [Docker Compose documentation](https://docs.docker.com/compose/).
+
+For more information about Tortoise ORM, you can visit the [Tortoise ORM documentation](https://tortoise.github.io/).
+
 ## Usage
+
+> [!WARNING]
+> **Before** running the project, go to the `__main__.py` file and choose the run command that fits your case, commenting the other.
 
 To run the project, use the following command:
 
