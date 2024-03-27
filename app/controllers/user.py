@@ -13,7 +13,24 @@ async def get_all_users() -> list[User]:
 async def get_user(user_id: int) -> User:
     """ Get user by id
     """
-    return await User.get(id=user_id)
+    try:
+        return await User.get(id=user_id)
+    except Exception as e:
+        raise HTTPException(status_code=404, detail="User not found")
+
+async def get_users_by_family_name(family_name: str) -> list[User]:
+    """ Get users by family name
+    """
+    try:
+        return await User.filter(family_name=family_name)
+    except Exception as e:
+        raise HTTPException(status_code=404, detail="Users not found")
+    
+async def get_username_by_id(user_id: int) -> str:
+    """ Get username by id
+    """
+    user = await User.get(id=user_id)
+    return user.username
 
 async def create_user(user: User) -> User:
     """ Create a user and return it

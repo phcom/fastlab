@@ -23,6 +23,18 @@ async def get_user(user_id: int):
     """
     return await user_controller.get_user(user_id)
 
+@router.get("/family/{family_name}", response_model=List[User_Pydantic])
+async def get_users_by_family_name(family_name: str):
+    """ Get users by family name
+    """
+    return await user_controller.get_users_by_family_name(family_name)
+
+@router.get("/username/{user_id}", response_model=str)
+async def get_username_by_id(user_id: int):
+    """ Get username by id
+    """
+    return await user_controller.get_username_by_id(user_id)
+
 
 @router.post("/", response_model=User_Pydantic)
 async def create_user(user: UserIn_Pydantic):
